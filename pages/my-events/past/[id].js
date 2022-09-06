@@ -82,46 +82,6 @@ function PastEvent() {
     return false;
   }
 
-  export async function getServerSideProps(context) {
-    const { id } = context.params;
-
-    const { data } = await client.query({
-      query: gql`
-        query Event($id: String!) {
-          event(id: $id) {
-            id
-            eventID
-            name
-            eventOwner
-            eventTimestamp
-            maxCapacity
-            totalRSVPs
-            totalConfirmedAttendees
-            rsvps {
-              id
-              attendee {
-                id
-              }
-            }
-            confirmedAttendees {
-              attendee {
-                id
-              }
-            }
-          }
-        }
-      `,
-      variables: {
-        id: id,
-      },
-    });
-
-    return {
-      props: {
-        event: data.event,
-      },
-    };
-  }
 
   useEffect(() => {
     setMounted(true);
@@ -246,6 +206,43 @@ function PastEvent() {
 
 export default PastEvent;
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const { id } = context.params;
 
+    const { data } = await client.query({
+      query: gql`
+        query Event($id: String!) {
+          event(id: $id) {
+            id
+            eventID
+            name
+            eventOwner
+            eventTimestamp
+            maxCapacity
+            totalRSVPs
+            totalConfirmedAttendees
+            rsvps {
+              id
+              attendee {
+                id
+              }
+            }
+            confirmedAttendees {
+              attendee {
+                id
+              }
+            }
+          }
+        }
+      `,
+      variables: {
+        id: id,
+      },
+    });
+
+    return {
+      props: {
+        event: data.event,
+      },
+    };
 }

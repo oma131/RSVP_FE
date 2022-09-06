@@ -57,7 +57,7 @@ export default function Navbar() {
               {renderThemeChanger()}
               <Link href="/create-event">
                 <a className="inline-block p-[2px] rounded-lg bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring">
-                  <span class="block px-2 py-2 sm:px-3 text-sm font-medium bg-white dark:text-gray-800 rounded-md hover:bg-transparent">
+                  <span className="block px-2 py-2 sm:px-3 text-sm font-medium bg-white dark:text-gray-800 rounded-md hover:bg-transparent">
                     Create Event
                   </span>
                 </a>
