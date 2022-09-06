@@ -1,12 +1,14 @@
 import Layout from "../components/Layout";
 import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { getDefaultWallets, RainbowKitProvider, cssStringFromTheme, lightTheme, darkTheme } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import { ApolloProvider } from "@apollo/client/react";
 import client from "../apollo-client";
+
+import { ThemeProvider } from "next-themes";
 
 const alchemyAPI = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY;
 
@@ -28,14 +30,16 @@ const wagmiClient = createClient({
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
-        <ApolloProvider client={client}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ApolloProvider>
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <ThemeProvider enableSystem={true} attribute="class">
+      <WagmiConfig client={wagmiClient}>
+        <RainbowKitProvider chains={chains} coolMode>
+          <ApolloProvider client={client}>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ApolloProvider>
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </ThemeProvider>
   );
 }

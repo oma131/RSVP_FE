@@ -1,13 +1,21 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Head from "next/head";
 
 const Layout = ({ children }) => {
   return (
-    <div className="font-serif flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-1">{children}</main>
-      <Footer />
-    </div>
+    <>
+      <Head>
+        <title>OMUME</title>
+        <link rel="icon" href="/favicon.ico" />    
+      </Head>
+      <div className="font-serif flex flex-col ">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </div>
+    </>
+    
   );
 };
 
