@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>OMUME</title>
+        <title>WEB3RSVP</title>
         <link rel="icon" href="/favicon.ico" />    
       </Head>
       <div className="font-serif flex flex-col ">

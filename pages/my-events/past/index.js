@@ -50,7 +50,7 @@ export default function MyPastEvents() {
   return (
     <Dashboard page="events" isUpcoming={false}>
       {account ? (
-        <div className="dark:text-gray-100">
+        <div >
           {data && data.events.length == 0 && <p>No past events Found</p>}
           {data && data.events.length > 0 && (
             <ul

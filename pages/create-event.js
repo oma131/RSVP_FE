@@ -106,7 +106,7 @@ export default function CreateEvent() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <Head>
-        <title>Create event | OMUME</title>
+        <title>Create event | WEB3RSVP</title>
         <meta
           name="description"
           content="Create your virtual event on the blockchain"
