@@ -5,7 +5,6 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount, useDisconnect } from "wagmi";
 import { useTheme } from "next-themes";
 import { SunIcon, MoonIcon } from "@heroicons/react/outline";
-import Logo from "./logo";
 
 export default function Navbar() {
   const { data: account } = useAccount();
@@ -50,7 +49,13 @@ export default function Navbar() {
         >
           <div className="w-full py-6 flex flex-wrap items-center justify-between border-b border-indigo-500 lg:border-none">
             <div className="flex items-center">
-              <Logo />   
+              <Link href="/">
+                <a className="my-2 flex items-center space-x-1">
+                    <span className="font-bold text-lg sm:text-3xl font-sans tracking-tight whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-lime-600 via-yellow-300 to-red-600 hover:animate-bounce">
+                        WEB3RSVP
+                    </span>
+                </a>
+              </Link>   
             </div>
 
             <div className="ml-10 space-x-4 flex items-center">
